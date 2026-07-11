@@ -26,6 +26,10 @@ apis:
     description: >-
       The Addus HomeCare API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: DomainSecurity
+    url: security/addus-homecare-domain-security.yml
+  - url: https://www.addus.com/feed/
+    type: Blog
   - type: LinkedIn
     url: https://www.linkedin.com/company/addus-homecare-inc
   - type: Website
