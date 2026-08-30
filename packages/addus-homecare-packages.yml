@@ -1,0 +1,44 @@
+generated: '2026-08-30'
+method: searched
+source: >-
+  Registry searches against registry.npmjs.org, pypi.org, rubygems.org, crates.io, plus a GitHub user
+  search for "addus" and a review of addus.com and its sitemap for SDK/CLI/source-code links
+provider: Addus HomeCare
+providerId: addus-homecare
+description: >-
+  Addus HomeCare publishes no first-party client libraries. Every public package registry searched
+  returned zero packages attributable to Addus HealthCare, Inc., and addus.com links to no SDK, CLI,
+  or source repository. github.com/Addus exists as a GitHub account created 2013-02-20 but carries no
+  name, no company, no website and zero public repositories, so it cannot be attributed to this
+  company and no GitHubOrganization pointer is emitted for it.
+package_count: 0
+packages: []
+registries_searched:
+  - registry: npm
+    endpoint: https://registry.npmjs.org/-/v1/search?text=addus
+    status: 200
+    matches: 0
+  - registry: pypi
+    endpoint: https://pypi.org/pypi/addus/json
+    status: 404
+    matches: 0
+  - registry: rubygems
+    endpoint: https://rubygems.org/api/v1/gems/addus.json
+    status: not-found
+    matches: 0
+  - registry: crates.io
+    endpoint: https://crates.io/api/v1/crates/addus
+    status: not-found
+    matches: 0
+  - registry: github
+    endpoint: https://api.github.com/users/Addus
+    status: 200
+    matches: 0
+    note: Account resolves but has 0 public repos and no identifying metadata; not attributable.
+notes: >-
+  Two Addus-branded mobile applications exist for its own workforce (Addus Connect on Google Play,
+  and the Addus Mobile Portal), but a consumer app store listing is an end-user product, not a client
+  library, and neither ships a package a developer can install. No SDKs pointer is emitted.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

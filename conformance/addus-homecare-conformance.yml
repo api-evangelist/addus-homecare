@@ -1,0 +1,108 @@
+generated: '2026-08-30'
+method: searched
+source: >-
+  addus.com privacy policy and HIPAA Notice of Privacy Practices, addus.com sitemap walk, plus the
+  contract-discovery probe recorded in well-known/addus-homecare-well-known.yml
+provider: Addus HomeCare
+providerId: addus-homecare
+description: >-
+  Standards conformance for Addus HomeCare, a US personal care, home health and hospice services
+  provider (NASDAQ: ADUS). Addus publishes no machine-readable API contract of any kind, so no
+  technical conformance assertion can be made from a spec — every entry below that concerns a
+  contract-level standard is recorded as not-assessable rather than false, because there is nothing
+  to read. The one thing Addus does publish is the regulatory posture required of a HIPAA covered
+  entity, and that is recorded with the document URL that states it.
+scope: >-
+  Assessed against the Health regulatory regime's standards shortlist (fhir, smart-on-fhir, us-core,
+  uscdi, da-vinci, carin-blue-button, fhir-bulk-data, cds-hooks, c-cda, hl7-v2, dicom) plus the
+  cross-cutting API standards this pipeline checks.
+conformance:
+  - id: hipaa
+    name: HIPAA (US) — covered entity privacy posture
+    conforms: true
+    evidence:
+      - type: document
+        url: https://addus.com/wp-content/uploads/Addus-Homecare-NPP-12.01.2025.pdf
+        status: 200
+        note: >-
+          HIPAA Notice of Privacy Practices, effective 2025-12-01, published as a PDF and linked from
+          the site privacy policy. This is the legally required patient notice of a covered entity,
+          not an API compliance attestation, and is recorded as such.
+      - type: document
+        url: https://addus.com/privacy-policy/
+        status: 200
+        note: 'Privacy policy states: "For information regarding how we treat your medical information, please see our HIPAA Notice of Privacy Practices".'
+  - id: ccpa-cpra
+    name: CCPA / CPRA (California) — consumer privacy notice
+    conforms: true
+    evidence:
+      - type: document
+        url: https://addus.com/wp-content/uploads/CPRA-Website-Notice-12.22.2023.pdf
+        status: 200
+      - type: page
+        url: https://addus.com/data-rights-request/
+        status: 200
+        note: Published data-rights request mechanism.
+  - id: fhir
+    name: HL7 FHIR
+    conforms: false
+    assessable: false
+    evidence:
+      - type: probe
+        url: https://addus.com/.well-known/smart-configuration
+        status: 404
+        note: >-
+          No FHIR capability statement, no /metadata endpoint, no published base URL. Addus is a
+          care-delivery organization; its clinical record lives in Homecare Homebase, its EVV in
+          CellTrak, and any FHIR surface would be published by those vendors, not by Addus.
+  - id: hl7-v2
+    name: HL7 v2 messaging
+    conforms: false
+    assessable: false
+    evidence:
+      - type: search
+        url: https://addus.com/sitemap_index.xml
+        status: 200
+        note: >-
+          Trade press describes HL7 and payer EDI exchange between Addus and its software partners,
+          but Addus publishes no message-type catalog, no interface spec, and no integration page.
+          A partner-contract integration that the provider does not document is not a conformance
+          claim we can make on their behalf.
+  - id: rfc9457
+    name: RFC 9457 Problem Details
+    conforms: false
+    assessable: false
+    evidence:
+      - type: probe
+        url: https://addus.com/openapi.json
+        status: 404
+        note: No contract exists to inspect for an error envelope.
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: false
+    assessable: false
+    evidence:
+      - type: probe
+        url: https://addus.com/.well-known/oauth-authorization-server
+        status: 404
+      - type: probe
+        url: https://addus.com/.well-known/openid-configuration
+        status: 404
+domain_standard:
+  detected: false
+  market: Home and community-based care delivery (personal care, home health, hospice)
+  candidates_probed: [fhir, smart-on-fhir, us-core, uscdi, c-cda, hl7-v2, x12-edi, dicom]
+  note: >-
+    REWARD-ONLY check, recorded as not detected rather than failed. Addus's market does have
+    standards — FHIR/US Core for clinical exchange, X12 for payer EDI, and state EVV aggregator
+    interfaces — but detecting a domain standard requires the CONTRACT to declare it, and Addus
+    publishes no contract. Nothing was invented to fill this slot.
+certifications:
+  published: []
+  note: >-
+    No SOC 2, ISO 27001, HITRUST, or FedRAMP attestation is published anywhere on addus.com, and no
+    trust center exists (trust.addus.com does not resolve). No Compliance or TrustCenter pointer is
+    emitted.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -2,61 +2,136 @@ aid: addus-homecare
 url: https://raw.githubusercontent.com/api-evangelist/addus-homecare/refs/heads/main/apis.yml
 name: Addus HomeCare
 type: Index
+x-type: company
+description: 'Addus HomeCare Corporation (NASDAQ: ADUS) is a US provider of personal care, home health
+  and hospice services delivered in the home and community, headquartered at 6303 Cowboys Way, Frisco,
+  Texas. It serves consumers across roughly three dozen states through a large field workforce of caregivers,
+  nurses and therapists, with revenue coming predominantly from Medicaid and Medicaid-managed-care programs,
+  Medicare and managed-care payers rather than from software. Addus is a care-delivery organization, not
+  a software vendor: contract discovery on 2026-08-30 found no developer program, no public API, no SDK,
+  no published package on any registry and no machine-readable contract of any kind. Its clinical and
+  operational systems are supplied by partners — Homecare Homebase for the home-based care platform under
+  a joint development agreement announced in April 2021, and CellTrak for Electronic Visit Verification
+  — and any system-to-system exchange (HL7, payer X12 EDI, state EVV aggregators) is scoped by partner
+  contract rather than by a public developer portal. Two earlier hosts on this profile, api.addus.com
+  and developer.addus.com, were probed and do not resolve; they have been removed.'
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/addus-homecare.png
 deliveryModel:
   model: unknown
   open_source: false
   commercial: false
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: No product interface published — Addus sells care delivery, not software
+  confidence: high
   source:
-  - none
-  generated: '2026-08-28'
-  method: derived
+  - contract-discovery
+  generated: '2026-08-30'
+  method: probed
 accessModel:
-  pricing: paid
+  pricing: unknown
   onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Paid
-  confidence: medium
+  label: No public API to access
+  confidence: high
   source:
-  - finops
-  generated: '2026-07-22'
-  method: derived
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/addus-homecare.png
-tags:
-  - Home Care
-  - Healthcare Services
-description: >-
-  Addus HomeCare is a major US corporation and Fortune 1000 company. The Addus HomeCare API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
-created: '2026-04-19'
-modified: '2026-04-19'
+  - plans
+  - contract-discovery
+  generated: '2026-08-30'
+  method: probed
 specificationVersion: '0.23'
-apis:
-  - aid: addus-homecare:addus-homecare-api
-    name: Addus HomeCare API
-    tags:
-      - Home Care
-      - Healthcare Services
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.addus.com
-    humanURL: https://developer.addus.com
-    properties:
-      - url: https://developer.addus.com/docs
-        type: Documentation
-    description: >-
-      The Addus HomeCare API provides access to platform services and data for enterprise integration and automation.
-common:
-  - type: DomainSecurity
-    url: security/addus-homecare-domain-security.yml
-  - url: https://www.addus.com/feed/
-    type: Blog
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/addus-homecare-inc
-  - type: Website
-    url: https://www.addus.com
+created: '2026-04-19'
+modified: '2026-08-30'
+tags:
+- Company
+- Home Care
+- Home Health
+- Hospice
+- Personal Care
+- Healthcare Services
+- Health
+- Care Delivery
+- Home and Community Based Services
+- Fortune 1000
+- Texas
+apis: []
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+- FN: APIs.json
+  email: info@apis.io
+common:
+- type: Website
+  url: https://addus.com/
+- type: About
+  url: https://addus.com/why-addus/
+- type: Team
+  url: https://addus.com/team/
+- type: Support
+  url: https://addus.com/contact/
+- type: Careers
+  url: https://addus.com/careers/
+- type: Locations
+  url: https://addus.com/locations/
+- type: Blog
+  url: https://addus.com/blog/
+- type: BlogFeeds
+  url: https://addus.com/feed/
+- type: Investors
+  url: https://addus.gcs-web.com/
+- type: PressReleases
+  url: https://addus.gcs-web.com/news-releases
+- type: TermsOfService
+  url: https://addus.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://addus.com/privacy-policy/
+- type: DataRights
+  url: https://addus.com/data-rights-request/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/addus-homecare-inc
+- type: DomainSecurity
+  url: security/addus-homecare-domain-security.yml
+- type: Conformance
+  url: conformance/addus-homecare-conformance.yml
+- type: Packages
+  url: packages/addus-homecare-packages.yml
+- type: LLMsTxt
+  url: llms/addus-homecare-llms.txt
+- type: Plans
+  url: plans/addus-homecare-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/addus-homecare-rate-limits.yml
+- type: FinOps
+  url: finops/addus-homecare-finops.yml
+x-enrichment:
+  date: '2026-08-30'
+  status: minimal
+  artifacts_added: 4
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: Addus HomeCare delivers personal care, home health and hospice in the home and bills Medicaid
+    and Medicare payers for it, so there is no product to expose as an API; the two hosts a prior profile
+    listed, api.addus.com and developer.addus.com, return NXDOMAIN with no A record and no CNAME, and
+    addus.com is a WordPress marketing site whose only JSON endpoint is WordPress core at /wp-json/, closed
+    with 401 rest_not_logged_in.
+  evidence:
+  - url: https://api.addus.com/
+    status: 0
+  - url: https://developer.addus.com/docs
+    status: 0
+  - url: https://addus.com/openapi.json
+    status: 404
+  - url: https://addus.com/llms.txt
+    status: 404
+  - url: https://addus.com/.well-known/agent-card.json
+    status: 404
+  - url: https://addus.com/.well-known/api-catalog
+    status: 404
+  - url: https://addus.com/graphql
+    status: 404
+  - url: https://addus.com/wp-json/wp/v2
+    status: 401
+  checked: '2026-08-30'

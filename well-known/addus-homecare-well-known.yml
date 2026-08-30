@@ -1,0 +1,89 @@
+generated: '2026-08-30'
+method: probed
+source: live HTTPS probes of every host named in apis.yml plus the two Addus subdomains that resolve
+provider: Addus HomeCare
+providerId: addus-homecare
+description: >-
+  Record of the /.well-known/ discovery probe against every Addus HomeCare host. Nothing is served.
+  The corporate site (addus.com, WordPress + Yoast) answers its own styled 404 page with HTTP 404 for
+  every well-known path, and connect.addus.com is a single-page application whose catch-all returns
+  HTTP 200 with an HTML shell for every path — including paths that do not exist — so none of its
+  200s is a document. No WellKnown or SecurityTxt pointer is emitted from this file: a recorded
+  absence is data, not a presence.
+hosts:
+  - host: addus.com
+    note: >-
+      Apex corporate site; www.addus.com 301s here. WordPress. Every /.well-known/ path returns the
+      site 404 template with a real 404 status.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: connect.addus.com
+    note: >-
+      Caregiver web application (Aptible-hosted, CNAME elb-addus-us-east-2-108871.aptible.in). The SPA
+      catch-all answers HTTP 200 with the same HTML shell for every path probed, so each 200 below is
+      a FALSE POSITIVE and is recorded as a miss, per the pipeline rule on SPA catch-alls.
+    documents:
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        result: miss
+        reason: SPA catch-all returned text/html shell, not a JSON AgentCard
+      - path: /.well-known/agent.json
+        status: 200
+        file: null
+        result: miss
+        reason: SPA catch-all returned text/html shell, not a JSON AgentCard
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        result: miss
+        reason: SPA catch-all returned text/html shell, not RFC 9116 text
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: null
+        result: miss
+        reason: SPA catch-all returned text/html shell, not JSON metadata
+  - host: api.addus.com
+    note: >-
+      Host named as baseURL in apis.yml. Does not resolve — no A record, no CNAME. Nothing to probe.
+    documents:
+      - path: /.well-known/security.txt
+        status: null
+        file: null
+        result: unreachable
+        reason: NXDOMAIN
+  - host: developer.addus.com
+    note: >-
+      Host named as humanURL in apis.yml. Does not resolve — no A record, no CNAME. Nothing to probe.
+    documents:
+      - path: /.well-known/security.txt
+        status: null
+        file: null
+        result: unreachable
+        reason: NXDOMAIN
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

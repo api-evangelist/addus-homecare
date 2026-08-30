@@ -4,23 +4,34 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Addus HomeCare
 providerId: addus-homecare
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+method: searched
+modified: '2026-08-30'
 reconciled: false
 tags:
-  - Home Care
-  - Healthcare Services
-description: Addus HomeCare is a Fortune 1000 personal home care, hospice, and home health services
-  provider. It is a clinical / care services company, not a commercial API platform. There is no public
-  developer pricing page or self-service plan tier.
+- Home Care
+- Healthcare Services
+description: 'Addus HomeCare Corporation (NASDAQ: ADUS) is a US personal care, home health and hospice
+  services provider. It is a care-delivery organization, not a commercial API platform: there is no developer
+  program, no API pricing page and no self-service plan tier. Re-searched 2026-08-30 by walking the full
+  published sitemap (49 pages) — no pricing, plans, tiers or developer page exists anywhere on addus.com.
+  plan_count is an honest zero, not an unchecked field.'
 sources:
-  - https://www.addus.com
-notes: No public commercial API pricing. Any payer / clearinghouse / partner integrations are governed
-  by direct contracts and not published. Reconciled flag is false because there are no published plan
-  entries to map to API Commons Plans.
+- https://addus.com
+- https://addus.com/sitemap_index.xml
+- https://addus.com/page-sitemap.xml
+notes: Services are billed to Medicaid, Medicare, managed-care payers and private pay under state and
+  payer contracts, not on a published rate card. Any clearinghouse or partner integration is governed
+  by a direct agreement. reconciled stays false because there are no published plan entries to map.
 plans: []
 maintainers:
-  - FN: Kin Lane
-    email: info@apievangelist.com
+- FN: Kin Lane
+  email: info@apievangelist.com
+source: https://addus.com/ sitemap walk 2026-08-30 — no pricing, plans or developer page exists
+plan_count: 0
+evidence:
+- url: https://addus.com/
+  status: 200
+  note: Corporate site; no pricing nav item.
+- url: https://addus.com/page-sitemap.xml
+  status: 200
+  note: 49 published pages; none is a pricing or plans page.

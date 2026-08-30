@@ -4,28 +4,43 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Addus HomeCare
 providerId: addus-homecare
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+method: searched
+modified: '2026-08-30'
 reconciled: false
 tags:
-  - Home Care
-  - Healthcare Services
-  - Rate Limiting
-description: Addus HomeCare does not publish a developer-facing API or rate-limit documentation. As a
-  home care / hospice / home health services provider, system-to-system integrations (HL7, FHIR, payer
-  EDI, EVV) are scoped through partner-specific contracts rather than a public API portal.
+- Home Care
+- Healthcare Services
+- Rate Limiting
+description: Addus HomeCare publishes no developer-facing API, so there is no rate-limit surface to document.
+  Contract discovery on 2026-08-30 probed every OpenAPI, GraphQL, MCP and /.well-known/ path against addus.com
+  and the two Addus subdomains that resolve, and found nothing; api.addus.com and developer.addus.com
+  do not resolve at all. limit_count is an honest zero. Where system-to-system integrations exist (CellTrak
+  EVV, Homecare Homebase, payer X12 EDI), throughput is governed by partner-specific data-sharing agreements
+  rather than by Addus-published limits.
 sources:
-  - https://www.addus.com
-notes: No public rate-limit documentation. Reconciled flag is false because there is no published API
-  surface to capture limits from.
+- https://addus.com
+- https://addus.com/sitemap_index.xml
+notes: No response headers to record — there is no callable Addus endpoint to observe. The only JSON endpoint
+  on the corporate host is WordPress core at /wp-json/, which returns 401 rest_not_logged_in to anonymous
+  callers and is CMS infrastructure, not a product API.
 responseCodes: {}
 limits: []
 policies:
-  - name: Partner Contract Scoped
-    description: Where integrations exist (EVV systems, payer EDI, HL7 / FHIR exchanges), throughput
-      is governed by partner-specific data-sharing agreements, not by Addus-published rate limits.
+- name: Partner Contract Scoped
+  description: Where integrations exist (EVV systems, payer EDI, HL7 / FHIR exchanges), throughput is
+    governed by partner-specific data-sharing agreements, not by Addus-published rate limits.
 maintainers:
-  - FN: Kin Lane
-    email: info@apievangelist.com
+- FN: Kin Lane
+  email: info@apievangelist.com
+source: https://addus.com/ contract-discovery + sitemap walk 2026-08-30 — no API and no rate-limit documentation
+  exists
+limit_count: 0
+evidence:
+- url: https://addus.com/openapi.json
+  status: 404
+- url: https://addus.com/wp-json/wp/v2
+  status: 401
+  note: WordPress core REST, closed to anonymous callers.
+- url: https://api.addus.com/
+  status: null
+  note: NXDOMAIN — host does not resolve.
