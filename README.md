@@ -1,4 +1,4 @@
-# Addus HomeCare (addus-homecare)
+# Addus HomeCare
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,23 +64,101 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Addus HomeCare is a major US corporation and Fortune 1000 company. The Addus HomeCare API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+Addus HomeCare Corporation (NASDAQ: ADUS) is a US provider of personal care, home health and hospice services delivered in the home and community, headquartered at 6303 Cowboys Way, Frisco, Texas. It serves consumers across roughly three dozen states through a large field workforce of caregivers, nurses and therapists, with revenue coming predominantly from Medicaid and Medicaid-managed-care programs, Medicare and managed-care payers rather than from software. Addus is a care-delivery organization, not a software vendor: contract discovery on 2026-08-30 found no developer program, no public API, no SDK, no published package on any registry and no machine-readable contract of any kind. Its clinical and operational systems are supplied by partners — Homecare Homebase for the home-based care platform under a joint development agreement announced in April 2021, and CellTrak for Electronic Visit Verification — and any system-to-system exchange (HL7, payer X12 EDI, state EVV aggregators) is scoped by partner contract rather than by a public developer portal. Two earlier hosts on this profile, api.addus.com and developer.addus.com, were probed and do not resolve; they have been removed.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/addus-homecare/refs/heads/main/apis.yml)
+**Areas:** Company · Home Care · Home Health · Hospice · Personal Care · Healthcare Services · Health · Care Delivery · Home and Community Based Services · Fortune 1000 · Texas
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Addus HomeCare on APIs.io
 
-## Tags:
+Everything profiled for Addus HomeCare is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/addus-homecare/](https://apis.io/providers/addus-homecare/)** — or go straight to one of the APIs or properties below.
 
- - Home Care, Healthcare Services
+### Published properties
 
-## Timestamps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Created:** 2026-04-19
-- **Modified:** 2026-04-19
+#### Security (1)
 
-## Maintainers
+Authentication, trust centre, and vulnerability disclosure.
 
-**FN:** Kin Lane
+- [Addus Homecare Domain Security](https://apis.io/security/addus-homecare/addus-homecare-domain-security/)
 
-**Email:** kin@apievangelist.com
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Addus Homecare Plans Pricing](https://apis.io/plans/addus-homecare/addus-homecare-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Addus Homecare Rate Limits](https://apis.io/rate-limits/addus-homecare/addus-homecare-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Addus Homecare Finops](https://apis.io/finops/addus-homecare/addus-homecare-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://addus.com/)
+- [Support](https://addus.com/contact/)
+- [Blog](https://addus.com/blog/)
+- [Terms of service](https://addus.com/terms-of-use/)
+- [Privacy policy](https://addus.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 13.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 49.1 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 21.1 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 19.5** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/addus-homecare/](https://apis.io/providers/addus-homecare/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Addus HomeCare: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/addus-homecare/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
